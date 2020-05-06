@@ -1,13 +1,13 @@
 //
 //  SceneDelegate.swift
-//  SiltSDKExamples
+//  silt-sdk-storyboard
 //
-//  Created by Marc on 22/04/2020.
+//  Created by Marc on 21/04/2020.
 //  Copyright © 2020 Silt. All rights reserved.
 //
 
 import UIKit
-
+@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

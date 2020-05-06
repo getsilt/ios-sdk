@@ -21,6 +21,9 @@
 		CC350E5C2450F1160039FC7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC350E5A2450F1160039FC7D /* LaunchScreen.storyboard */; };
 		CC350E672450F1160039FC7D /* SiltSDKExamplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350E662450F1160039FC7D /* SiltSDKExamplesTests.swift */; };
 		CC350E722450F1160039FC7D /* SiltSDKExamplesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350E712450F1160039FC7D /* SiltSDKExamplesUITests.swift */; };
+		CCFCD7E42462B0CF001386CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFCD7E32462B0CF001386CF /* Main.storyboard */; };
+		CCFCD7E62462B170001386CF /* SiltSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC350DD3245083EB0039FC7D /* SiltSDK.framework */; };
+		CCFCD7E72462B170001386CF /* SiltSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CC350DD3245083EB0039FC7D /* SiltSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +48,28 @@
 			remoteGlobalIDString = CC350E4C2450F1140039FC7D;
 			remoteInfo = SiltSDKExamples;
 		};
+		CCFCD7E82462B170001386CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC350DCA245083EB0039FC7D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC350DD2245083EB0039FC7D;
+			remoteInfo = SiltSDK;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CCFCD7EA2462B170001386CF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CCFCD7E72462B170001386CF /* SiltSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CC350DD3245083EB0039FC7D /* SiltSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SiltSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +95,7 @@
 		CC350E6D2450F1160039FC7D /* SiltSDKExamplesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SiltSDKExamplesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC350E712450F1160039FC7D /* SiltSDKExamplesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiltSDKExamplesUITests.swift; sourceTree = "<group>"; };
 		CC350E732450F1160039FC7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCFCD7E32462B0CF001386CF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCFCD7E62462B170001386CF /* SiltSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +148,7 @@
 				CC350E652450F1160039FC7D /* SiltSDKExamplesTests */,
 				CC350E702450F1160039FC7D /* SiltSDKExamplesUITests */,
 				CC350DD4245083EB0039FC7D /* Products */,
+				CCFCD7E52462B170001386CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +191,7 @@
 			children = (
 				CC350E4F2450F1140039FC7D /* AppDelegate.swift */,
 				CC350E512450F1140039FC7D /* SceneDelegate.swift */,
+				CCFCD7E32462B0CF001386CF /* Main.storyboard */,
 				CC350E532450F1140039FC7D /* ViewController.swift */,
 				CC350E582450F1160039FC7D /* Assets.xcassets */,
 				CC350E5A2450F1160039FC7D /* LaunchScreen.storyboard */,
@@ -188,6 +216,13 @@
 				CC350E732450F1160039FC7D /* Info.plist */,
 			);
 			path = SiltSDKExamplesUITests;
+			sourceTree = "<group>";
+		};
+		CCFCD7E52462B170001386CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,10 +282,12 @@
 				CC350E492450F1140039FC7D /* Sources */,
 				CC350E4A2450F1140039FC7D /* Frameworks */,
 				CC350E4B2450F1140039FC7D /* Resources */,
+				CCFCD7EA2462B170001386CF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CCFCD7E92462B170001386CF /* PBXTargetDependency */,
 			);
 			name = SiltSDKExamples;
 			productName = SiltSDKExamples;
@@ -365,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCFCD7E42462B0CF001386CF /* Main.storyboard in Resources */,
 				CC350E5C2450F1160039FC7D /* LaunchScreen.storyboard in Resources */,
 				CC350E592450F1160039FC7D /* Assets.xcassets in Resources */,
 			);
@@ -448,6 +486,11 @@
 			isa = PBXTargetDependency;
 			target = CC350E4C2450F1140039FC7D /* SiltSDKExamples */;
 			targetProxy = CC350E6E2450F1160039FC7D /* PBXContainerItemProxy */;
+		};
+		CCFCD7E92462B170001386CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC350DD2245083EB0039FC7D /* SiltSDK */;
+			targetProxy = CCFCD7E82462B170001386CF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -679,7 +722,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WJH38VF9JZ;
 				INFOPLIST_FILE = SiltSDKExamples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -696,7 +741,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WJH38VF9JZ;
 				INFOPLIST_FILE = SiltSDKExamples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -40,7 +40,11 @@ class ViewController: UIViewController, UIWebViewDelegate {
         let vc = SiltWebviewController(url: "https://signup.getsilt.com/?customer_app_id=YOUR_CUSTOMER_APP_ID")
         vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
         NotificationCenter.default.addObserver(self, selector: #selector(onVerifiedUserId(_:)), name: .didFinishedSiltVerification, object: nil)
-        self.present(vc, animated: true, completion: nil)
+        // You can set the in transition like this
+        view.window!.layer.add(getTransition(subtype: .fromRight), forKey: kCATransition)
+        self.present(vc, animated: false, completion: nil)
+        // You can alsoe set default animation
+        //self.present(vc, animated: true, completion: nil)
     }
     
     @objc func onVerifiedUserId(_ notification: Notification) {
