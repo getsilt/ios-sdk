@@ -37,13 +37,17 @@ class ViewController: UIViewController, UIWebViewDelegate {
     }
     
     @objc func loadSiltSignup() {
-        let vc = SiltWebviewController(url: "https://signup.getsilt.com/?customer_app_id=YOUR_CUSTOMER_APP_ID")
+        // ask for your companyAppId on hello@getsilt.com
+        // and use it in the initializer as SiltWebviewController(companyAppId: {YOUR_CUSTOMER_APP_ID} )
+        // demo companyAppId: 9f936bc0-328f-4985-95b1-2c562061711f
+        let vc = SiltWebviewController(companyAppId: "9f936bc0-328f-4985-95b1-2c562061711f")
         vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
         NotificationCenter.default.addObserver(self, selector: #selector(onVerifiedUserId(_:)), name: .didFinishedSiltVerification, object: nil)
-        // You can set the in transition like this
+        
+        // You can create a transition with the getTransition func provided by Silt
         view.window!.layer.add(getTransition(subtype: .fromRight), forKey: kCATransition)
         self.present(vc, animated: false, completion: nil)
-        // You can alsoe set default animation
+        // You can also set default animation
         //self.present(vc, animated: true, completion: nil)
     }
     
