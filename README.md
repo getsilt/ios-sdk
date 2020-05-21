@@ -1,7 +1,8 @@
 # ios-sdk
 
 ## SDK to integrate with Silt's signup
-This is an SDK to integrate with an iOS app Silt's KYC & ID verification
+This is an SDK to integrate with an iOS app Silt's KYC & ID verification.
+The Silt's SDK Framework is inside the SiltSDK directory.
 
 ## How to
 You can check the only code you will need to add to your app in the example ViewController file:
