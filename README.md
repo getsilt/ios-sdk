@@ -9,14 +9,15 @@ The Silt's SDK Framework is inside the SiltSDK directory.
 The only code you will need to add to your app is in the example ViewController file:
 SiltSDKExamples/ViewController.swift
 
-- Simply create a pod file or add the line `pod 'SiltSDK', '~> 1.0'`.
+- Simply create a pod file named `Podfile` or add the line `pod 'SiltSDK', '~> 1.0'`.
 
 ```
 target 'MyApp' do
   pod 'SiltSDK', '~> 1.0'
 end
 ```
-
+(More info on Podfile here: (https://guides.cocoapods.org/using/the-podfile.html))
+ 
 - Run the command `$ pod install`.
 - Open `YourApp.xcworkspacep` and build.
 
