@@ -19,7 +19,7 @@ end
 (More info on Podfile here: (https://guides.cocoapods.org/using/the-podfile.html))
  
 - Run the command `$ pod install`.
-- Open `YourApp.xcworkspacep` and build.
+- IMPORTANT: Open `YourApp.xcworkspacep` and build.
 
 The SiltSDK is a cocoapod available at:
 https://cocoapods.org/pods/SiltSDK
