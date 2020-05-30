@@ -20,7 +20,7 @@ end
  
 - Run the command `$ pod install`.
 - IMPORTANT: Open `YourApp.xcworkspacep` and build.
-
+- To finish, add `Privacy - Camera Usage Description`: `Camera usage description` to your `Info.plist` file.
 The SiltSDK is a cocoapod available at:
 https://cocoapods.org/pods/SiltSDK
 
