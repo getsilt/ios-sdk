@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0ACD24248257B80020DCD5 /* SiltButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0ACD22248257B80020DCD5 /* SiltButton.swift */; };
+		CC0ACD25248257B80020DCD5 /* SiltWebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0ACD23248257B80020DCD5 /* SiltWebviewController.swift */; };
 		CC350DDD245083EB0039FC7D /* SiltSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC350DD3245083EB0039FC7D /* SiltSDK.framework */; };
 		CC350DE2245083EC0039FC7D /* SiltSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350DE1245083EC0039FC7D /* SiltSDKTests.swift */; };
 		CC350DE4245083EC0039FC7D /* SiltSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = CC350DD6245083EB0039FC7D /* SiltSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CC350DEF2450841B0039FC7D /* SiltButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350DED2450841B0039FC7D /* SiltButton.swift */; };
-		CC350DF02450841B0039FC7D /* SiltWebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350DEE2450841B0039FC7D /* SiltWebviewController.swift */; };
 		CC350E44245097330039FC7D /* SiltAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC350E43245097330039FC7D /* SiltAssets.xcassets */; };
 		CC350E462450A5C00039FC7D /* SiltTrademark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350E452450A5C00039FC7D /* SiltTrademark.swift */; };
 		CC350E502450F1140039FC7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350E4F2450F1140039FC7D /* AppDelegate.swift */; };
 		CC350E522450F1140039FC7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350E512450F1140039FC7D /* SceneDelegate.swift */; };
 		CC350E542450F1140039FC7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350E532450F1140039FC7D /* ViewController.swift */; };
-		CC350E592450F1160039FC7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC350E582450F1160039FC7D /* Assets.xcassets */; };
 		CC350E5C2450F1160039FC7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC350E5A2450F1160039FC7D /* LaunchScreen.storyboard */; };
 		CC350E672450F1160039FC7D /* SiltSDKExamplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350E662450F1160039FC7D /* SiltSDKExamplesTests.swift */; };
 		CC350E722450F1160039FC7D /* SiltSDKExamplesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC350E712450F1160039FC7D /* SiltSDKExamplesUITests.swift */; };
@@ -72,21 +71,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CC0ACD22248257B80020DCD5 /* SiltButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiltButton.swift; sourceTree = "<group>"; };
+		CC0ACD23248257B80020DCD5 /* SiltWebviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiltWebviewController.swift; sourceTree = "<group>"; };
 		CC350DD3245083EB0039FC7D /* SiltSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SiltSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC350DD6245083EB0039FC7D /* SiltSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SiltSDK.h; sourceTree = "<group>"; };
 		CC350DD7245083EB0039FC7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC350DDC245083EB0039FC7D /* SiltSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SiltSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC350DE1245083EC0039FC7D /* SiltSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiltSDKTests.swift; sourceTree = "<group>"; };
 		CC350DE3245083EC0039FC7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC350DED2450841B0039FC7D /* SiltButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiltButton.swift; path = "../../silt-sdk-storyboard/silt-sdk-storyboard/SiltButton.swift"; sourceTree = "<group>"; };
-		CC350DEE2450841B0039FC7D /* SiltWebviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiltWebviewController.swift; path = "../../silt-sdk-storyboard/silt-sdk-storyboard/SiltWebviewController.swift"; sourceTree = "<group>"; };
 		CC350E43245097330039FC7D /* SiltAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SiltAssets.xcassets; sourceTree = "<group>"; };
 		CC350E452450A5C00039FC7D /* SiltTrademark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiltTrademark.swift; sourceTree = "<group>"; };
 		CC350E4D2450F1140039FC7D /* SiltSDKExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SiltSDKExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC350E4F2450F1140039FC7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC350E512450F1140039FC7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CC350E532450F1140039FC7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CC350E582450F1160039FC7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC350E5B2450F1160039FC7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC350E5D2450F1160039FC7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC350E622450F1160039FC7D /* SiltSDKExamplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SiltSDKExamplesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,11 +165,11 @@
 		CC350DD5245083EB0039FC7D /* SiltSDK */ = {
 			isa = PBXGroup;
 			children = (
+				CC0ACD22248257B80020DCD5 /* SiltButton.swift */,
+				CC0ACD23248257B80020DCD5 /* SiltWebviewController.swift */,
 				CC350DD6245083EB0039FC7D /* SiltSDK.h */,
 				CC350DD7245083EB0039FC7D /* Info.plist */,
-				CC350DED2450841B0039FC7D /* SiltButton.swift */,
 				CC350E452450A5C00039FC7D /* SiltTrademark.swift */,
-				CC350DEE2450841B0039FC7D /* SiltWebviewController.swift */,
 				CC350E43245097330039FC7D /* SiltAssets.xcassets */,
 			);
 			path = SiltSDK;
@@ -193,7 +191,6 @@
 				CC350E512450F1140039FC7D /* SceneDelegate.swift */,
 				CCFCD7E32462B0CF001386CF /* Main.storyboard */,
 				CC350E532450F1140039FC7D /* ViewController.swift */,
-				CC350E582450F1160039FC7D /* Assets.xcassets */,
 				CC350E5A2450F1160039FC7D /* LaunchScreen.storyboard */,
 				CC350E5D2450F1160039FC7D /* Info.plist */,
 			);
@@ -404,7 +401,6 @@
 			files = (
 				CCFCD7E42462B0CF001386CF /* Main.storyboard in Resources */,
 				CC350E5C2450F1160039FC7D /* LaunchScreen.storyboard in Resources */,
-				CC350E592450F1160039FC7D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,9 +425,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0ACD24248257B80020DCD5 /* SiltButton.swift in Sources */,
 				CC350E462450A5C00039FC7D /* SiltTrademark.swift in Sources */,
-				CC350DEF2450841B0039FC7D /* SiltButton.swift in Sources */,
-				CC350DF02450841B0039FC7D /* SiltWebviewController.swift in Sources */,
+				CC0ACD25248257B80020DCD5 /* SiltWebviewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
