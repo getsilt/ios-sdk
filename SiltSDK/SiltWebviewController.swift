@@ -26,6 +26,8 @@ private func getQueryStringParameter(url: URL, param: String) -> String {
 
 public extension Notification.Name {
     static let didFinishedSiltVerification = Notification.Name("didFinishedSiltVerification")
+    static let didGotSiltUserID = Notification.Name("didGotSiltUserID")
+    static let didGotCompanyAppToken = Notification.Name("didGotCompanyAppToken")
 }
 
 public class SiltWebviewController: UIViewController, WKUIDelegate {
@@ -47,9 +49,20 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
         sendRequest(urlString: siltSignupURL)
     }
     
-    var siltVerifiedUserId: String? {
+    var siltUserId: String? {
         didSet(value) {
-            NotificationCenter.default.post(name: .didFinishedSiltVerification, object: nil, userInfo: ["siltVerifiedUserId": siltVerifiedUserId!])
+            if (siltUserId) != nil {
+                NotificationCenter.default.post(name: .didGotSiltUserID, object: nil, userInfo: ["siltUserId": siltUserId!])
+            }
+
+        }
+    }
+    
+    var siltCompanyAppToken: String? {
+        didSet(value) {
+            if (siltCompanyAppToken) != nil {
+                NotificationCenter.default.post(name: .didGotCompanyAppToken, object: nil, userInfo: ["siltCompanyAppToken": siltCompanyAppToken!])
+            }
         }
     }
     
@@ -69,11 +82,29 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
     }
     
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == #keyPath(WKWebView.url) {
-            let verified_user_id = getQueryStringParameter(url: siltWebview.url!, param: "verified_user_id")
-            if (!verified_user_id.isEmpty) {
-                siltVerifiedUserId = verified_user_id
+        if keyPath == #keyPath(WKWebView.url) && siltWebview.url != nil {
+            
+            
+            
+            let silt_user_id = getQueryStringParameter(url: siltWebview.url!, param: "silt_user_id")
+            
+            if (!silt_user_id.isEmpty) {
+                siltUserId = silt_user_id
             }
+            
+            let company_app_token = getQueryStringParameter(url: siltWebview.url!, param: "company_app_token")
+            if (!company_app_token.isEmpty) {
+                siltCompanyAppToken = company_app_token
+            }
+            
+            if keyPath == #keyPath(WKWebView.url) {
+                if ((siltWebview.url!).path == "/finished-verification" ) {
+                    if (siltCompanyAppToken) != nil && (siltUserId) != nil {
+                        NotificationCenter.default.post(name: .didFinishedSiltVerification, object: nil, userInfo: ["siltUserId": siltUserId!, "siltCompanyAppToken": siltCompanyAppToken!])
+                    }
+                }
+            }
+            
         }
     }
     
@@ -100,7 +131,7 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
                 siltWebview.goForward()
             }
         }
-
+        
         if (recognizer.direction == .right) {
             goBack()
         }

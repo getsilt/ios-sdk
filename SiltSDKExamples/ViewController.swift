@@ -37,28 +37,39 @@ class ViewController: UIViewController, UIWebViewDelegate {
     }
     
     @objc func loadSiltSignup() {
-        // ask for your companyAppId on hello@getsilt.com
+        // ask for your companyAppId on customers@getsilt.com
         // and use it in the initializer as SiltWebviewController(companyAppId: {YOUR_CUSTOMER_APP_ID} )
         // demo companyAppId: 9f936bc0-328f-4985-95b1-2c562061711f
-        let vc = SiltWebviewController(companyAppId: "9f936bc0-328f-4985-95b1-2c562061711f")
-        vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
-        NotificationCenter.default.addObserver(self, selector: #selector(onVerifiedUserId(_:)), name: .didFinishedSiltVerification, object: nil)
+        let vc = SiltWebviewController(companyAppId: "6ab13b77-a6f4-4267-b6dc-5facd6547509")
+        
+        // Subscribe to the notification that will be triggered when a user finishes Silt's verification flow,
+        // that will run "onFinishedSiltVerification" function
+        NotificationCenter.default.addObserver(self, selector: #selector(onFinishedSiltVerification(_:)), name: .didFinishedSiltVerification, object: nil)
+        
+        // You can also subscribe to the notifications 'didGotSiltUserID' after getting a userID, and 'didGotCompanyAppToken' after getting an app token.
+        // 'siltUserId' or 'siltCompanyAppToken' values will be inside the userInfo object.
+        // NotificationCenter.default.addObserver(self, selector: #selector(onGotSiltUserId(_:)), name: .didGotSiltUserID, object: nil)
+        // NotificationCenter.default.addObserver(self, selector: #selector(onGotCompanyAppToken(_:)), name: .didGotCompanyAppToken, object: nil)
         
         // You can create a transition with the getTransition func provided by Silt
         view.window!.layer.add(getTransition(subtype: .fromRight), forKey: kCATransition)
+        
+        // set the Presentation style of the webview
+        vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+        
         self.present(vc, animated: false, completion: nil)
         // You can also set default animation
         //self.present(vc, animated: true, completion: nil)
     }
     
-    @objc func onVerifiedUserId(_ notification: Notification) {
-        if let siltVerifiedUserId = notification.userInfo?["siltVerifiedUserId"] as? String{
-            if(!siltVerifiedUserId.isEmpty){
-                // Call your backend here to verify this userId
-                print("Got a verified user Id: \(siltVerifiedUserId)")
-            }
+    @objc func onFinishedSiltVerification(_ notification: Notification) {
+        let siltUserId = notification.userInfo?["siltUserId"] as? String
+        let siltCompanyAppToken = notification.userInfo?["siltCompanyAppToken"] as? String
+
+        if(!(siltUserId!).isEmpty && !(siltCompanyAppToken!).isEmpty){
+            // Call your backend here to verify this userId
+            print("Got a verified user Id: \(siltUserId!) \(siltCompanyAppToken!)")
         }
-        
     }
     
     

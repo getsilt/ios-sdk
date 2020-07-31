@@ -21,7 +21,7 @@ public class SiltTrademark: UILabel {
     }
     
     func setupView() {
-        let SiltSDKBundle = Bundle(for: SiltTrademark.self)
+        let SiltSDKBundle = Bundle(for: SiltTrademark.self as AnyClass)
         let siltLogo = UIImage(named: "silt_blue.png", in: SiltSDKBundle, compatibleWith: nil)?.withRenderingMode(.alwaysOriginal)
         
         
