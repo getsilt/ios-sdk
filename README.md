@@ -24,7 +24,7 @@ https://cocoapods.org/pods/SiltSDK
 Here is a guide to get started with cocoapods: https://guides.cocoapods.org/using/getting-started.html
 And a guide to import a cocoapod library to your app: https://guides.cocoapods.org/using/using-cocoapods.html
 
-## How to use it
+## How to use it
 The only code you will need to add to your app is in the example ViewController file:
 `SiltSDKExamples/ViewController.swift`
 You will need:
