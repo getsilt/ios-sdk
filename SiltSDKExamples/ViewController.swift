@@ -40,7 +40,8 @@ class ViewController: UIViewController, UIWebViewDelegate {
         // ask for your companyAppId on customers@getsilt.com
         // and use it in the initializer as SiltWebviewController(companyAppId: {YOUR_CUSTOMER_APP_ID} )
         // demo companyAppId: 9f936bc0-328f-4985-95b1-2c562061711f
-        let vc = SiltWebviewController(companyAppId: "6ab13b77-a6f4-4267-b6dc-5facd6547509")
+        // add the argument ", outTransition: .fromLeft" to SiltWebviewController to define an out animation when closing the webview
+        let vc = SiltWebviewController(companyAppId: "2022a022-a662-4c58-8865-a1fb904d2cde")
         
         // Subscribe to the notification that will be triggered when a user finishes Silt's verification flow,
         // that will run "onFinishedSiltVerification" function
@@ -52,12 +53,12 @@ class ViewController: UIViewController, UIWebViewDelegate {
         // NotificationCenter.default.addObserver(self, selector: #selector(onGotCompanyAppToken(_:)), name: .didGotCompanyAppToken, object: nil)
         
         // You can create a transition with the getTransition func provided by Silt
-        view.window!.layer.add(getTransition(subtype: .fromRight), forKey: kCATransition)
+        //view.window!.layer.add(getTransition(subtype: .fromRight), forKey: kCATransition)
         
         // set the Presentation style of the webview
-        vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+        //vc.modalPresentationStyle = .overFullScreen //or .overFullScreen for transparency
         
-        self.present(vc, animated: false, completion: nil)
+        self.present(vc, animated: true, completion: nil)
         // You can also set default animation
         //self.present(vc, animated: true, completion: nil)
     }
@@ -65,7 +66,6 @@ class ViewController: UIViewController, UIWebViewDelegate {
     @objc func onFinishedSiltVerification(_ notification: Notification) {
         let siltUserId = notification.userInfo?["siltUserId"] as? String
         let siltCompanyAppToken = notification.userInfo?["siltCompanyAppToken"] as? String
-
         if(!(siltUserId!).isEmpty && !(siltCompanyAppToken!).isEmpty){
             // Call your backend here to verify this userId
             print("Got a verified user Id: \(siltUserId!) \(siltCompanyAppToken!)")

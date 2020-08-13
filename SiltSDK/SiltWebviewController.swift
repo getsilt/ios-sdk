@@ -32,15 +32,18 @@ public extension Notification.Name {
 
 public class SiltWebviewController: UIViewController, WKUIDelegate {
     let siltSignupURL: String
+    var outTransition: CATransitionSubtype?
     public var siltWebview: WKWebView!
     
-    public init (companyAppId: String!) {
+    public init (companyAppId: String!, outTransition: CATransitionSubtype? = nil) {
         siltSignupURL = "https://signup.getsilt.com/?company_app_id=" + companyAppId
+        self.outTransition = outTransition
         super.init(nibName: nil, bundle: nil)
     }
     
     public required init?(coder aDecoder: NSCoder) {
         siltSignupURL = "https://signup.getsilt.com/?company_app_id="
+        self.outTransition = .fromBottom
         super.init(coder: aDecoder)
     }
     
@@ -52,7 +55,7 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
     var siltUserId: String? {
         didSet(value) {
             if (siltUserId) != nil {
-                NotificationCenter.default.post(name: .didGotSiltUserID, object: nil, userInfo: ["siltUserId": siltUserId!])
+                NotificationCenter.default.post(name: .didGotSiltUserID, object: nil, userInfo: ["siltUserId": siltUserId ?? "", "siltCompanyAppToken": siltCompanyAppToken ?? ""])
             }
 
         }
@@ -61,7 +64,7 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
     var siltCompanyAppToken: String? {
         didSet(value) {
             if (siltCompanyAppToken) != nil {
-                NotificationCenter.default.post(name: .didGotCompanyAppToken, object: nil, userInfo: ["siltCompanyAppToken": siltCompanyAppToken!])
+                NotificationCenter.default.post(name: .didGotCompanyAppToken, object: nil, userInfo: ["siltUserId": siltUserId ?? "", "siltCompanyAppToken": siltCompanyAppToken ?? ""])
             }
         }
     }
@@ -102,6 +105,10 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
                     if (siltCompanyAppToken) != nil && (siltUserId) != nil {
                         NotificationCenter.default.post(name: .didFinishedSiltVerification, object: nil, userInfo: ["siltUserId": siltUserId!, "siltCompanyAppToken": siltCompanyAppToken!])
                     }
+                    if (self.outTransition != nil) {
+                        self.view.window!.layer.add(getTransition(subtype: self.outTransition!), forKey: nil)
+                    }
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
             
@@ -120,8 +127,10 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
         if siltWebview.canGoBack {
             siltWebview.goBack()
         } else {
-            self.view.window!.layer.add(getTransition(subtype: .fromLeft), forKey: nil)
-            self.dismiss(animated: false, completion: nil)
+            if (self.outTransition != nil) {
+                self.view.window!.layer.add(getTransition(subtype: self.outTransition!), forKey: nil)
+            }
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
