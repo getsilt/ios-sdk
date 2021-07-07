@@ -6,10 +6,10 @@ The Silt's SDK Framework is inside the SiltSDK directory.
 
 ## How to import the SDK
 
-- Simply create a pod file named `Podfile` or add the line `pod 'SiltSDK', '~> 1.1'`.
+- Simply create a pod file named `Podfile` or add the line `pod 'SiltSDK', '~> 1.2'`.
 ```
 target 'MyApp' do
-  pod 'SiltSDK', '~> 1.1'
+  pod 'SiltSDK', '~> 1.2'
 end
 ```
 (More info on Podfile here: (https://guides.cocoapods.org/using/the-podfile.html))
