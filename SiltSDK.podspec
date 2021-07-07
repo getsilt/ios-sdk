@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SiltSDK"
-  spec.version      = "1.1.1"
+  spec.version      = "1.2.0"
   spec.summary      = "A library to help customer of Silt get integrated and verify users"
 
 

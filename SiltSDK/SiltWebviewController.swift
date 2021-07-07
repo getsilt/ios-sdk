@@ -35,8 +35,9 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
     var outTransition: CATransitionSubtype?
     public var siltWebview: WKWebView!
     
-    public init (companyAppId: String!, outTransition: CATransitionSubtype? = nil) {
-        siltSignupURL = "https://signup.getsilt.com/?company_app_id=" + companyAppId
+    public init (companyAppId: String!, extraQuery: String? = nil, outTransition: CATransitionSubtype? = nil) {
+        
+        siltSignupURL = "https://signup.getsilt.com/?company_app_id=" + companyAppId + extraQuery!
         self.outTransition = outTransition
         super.init(nibName: nil, bundle: nil)
     }
