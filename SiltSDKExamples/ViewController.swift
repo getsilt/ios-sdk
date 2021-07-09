@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
         // demo companyAppId: 9f936bc0-328f-4985-95b1-2c562061711f
         // add the argument ", outTransition: .fromLeft" to SiltWebviewController to define an out animation when closing the webview
         
-        let vc = SiltWebviewController(companyAppId:"2022a022-a662-4c58-8865-a1fb904d2cde", extraQuery:"(&user_email=test@getsilt.com&meta={'monster':'hydra'}")
+        let vc = SiltWebviewController(companyAppId:"2022a022-a662-4c58-8865-a1fb904d2cde", extraQuery:"&user_email=test@getsilt.com&meta={\"monster\":\"hydra\"}")
         
         // Subscribe to the notification that will be triggered when a user finishes Silt's verification flow,
         // that will run "onFinishedSiltVerification" function

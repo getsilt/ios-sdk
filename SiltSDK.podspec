@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SiltSDK"
-  spec.version      = "1.2.1"
+  spec.version      = "1.2.3"
   spec.summary      = "A library to help customer of Silt get integrated and verify users"
 
 
@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/getsilt/ios-sdk.git", :tag => "1.2.1" }
+  spec.source       = { :git => "https://github.com/getsilt/ios-sdk.git", :tag => "1.2.3" }
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?

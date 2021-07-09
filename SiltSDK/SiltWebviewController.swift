@@ -35,9 +35,8 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
     var outTransition: CATransitionSubtype?
     public var siltWebview: WKWebView!
     
-    public init (companyAppId: String!, extraQuery: String? = nil, outTransition: CATransitionSubtype? = nil) {
-        
-        siltSignupURL = "https://signup.getsilt.com/?company_app_id=" + companyAppId + extraQuery!
+    public init (companyAppId: String!, extraQuery: String = "", outTransition: CATransitionSubtype? = nil) {
+        siltSignupURL = "https://signup.getsilt.com/?company_app_id=" + companyAppId + extraQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         self.outTransition = outTransition
         super.init(nibName: nil, bundle: nil)
     }
@@ -72,6 +71,7 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
     
     public override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
+        webConfiguration.allowsInlineMediaPlayback = true
         siltWebview = WKWebView(frame: .zero, configuration: webConfiguration)
         siltWebview.uiDelegate = self
         siltWebview.addObserver(self, forKeyPath: "URL", options: .new, context: nil)
@@ -87,8 +87,6 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
     
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(WKWebView.url) && siltWebview.url != nil {
-            
-            
             
             let silt_user_id = getQueryStringParameter(url: siltWebview.url!, param: "silt_user_id")
             
