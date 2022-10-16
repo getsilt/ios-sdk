@@ -37,7 +37,9 @@ The only code you will need to add to your app is in the example ViewController 
   siltButtonBlue.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
   ```
     
-### 2. The `loadSiltSignup` func. Check the `SiltSDKExamples/ViewController.swift` for an example.
+### 2. The `loadSiltSignup` func. 
+  
+  Check the `SiltSDKExamples/ViewController.swift` for an example.
     
   Ask for your `companyAppId` on customers@getsilt.com or get it from https://dashboard.getsilt.com
   and use it in the initializer.
@@ -109,7 +111,8 @@ The only code you will need to add to your app is in the example ViewController 
   ```
   self.present(vc, animated: true, completion: nil)
   ```
-### 3. The `onFinishedSiltVerification` func that recovers the silt Id. Check the `SiltSDKExamples/ViewController.swift` for an example
+### 3. The `onFinishedSiltVerification` func
+  The `onFinishedSiltVerification` func that recovers the silt Id. Check the `SiltSDKExamples/ViewController.swift` for an example.
   ```
   @objc func onFinishedSiltVerification(_ notification: Notification) {
           let siltUserId = notification.userInfo?["siltUserId"] as? String
@@ -120,7 +123,8 @@ The only code you will need to add to your app is in the example ViewController 
           }
       }
    ```
-### 4. Implement a call from your backend to Silt's backend to retrieve the user verification status and information. Check more on this in https://getsilt.com/developers
+### 4. Retrieve the verification info of a user
+  Implement a call from your backend to Silt's backend to retrieve the user verification status and information. Check more on this in      https://getsilt.com/developers
 
 
 ## How it works
