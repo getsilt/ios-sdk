@@ -37,13 +37,13 @@ class ViewController: UIViewController, UIWebViewDelegate {
     }
     
     @objc func loadSiltSignup() {
-        // ask for your companyAppId on customers@getsilt.com
+        // Ask for your companyAppId on customers@getsilt.com
         // and use it in the initializer as SiltWebviewController(companyAppId: {YOUR_CUSTOMER_APP_ID} )
-        // demo companyAppId: 9f936bc0-328f-4985-95b1-2c562061711f
-        // add the argument ", outTransition: .fromLeft" to SiltWebviewController to define an out animation when closing the webview
+        // demo companyAppId: 2022a022-a662-4c58-8865-a1fb904d2cde
+        // add the argument "outTransition: .fromLeft" to SiltWebviewController to define an out animation when closing the webview
         
-        let vc = SiltWebviewController(companyAppId:"2022a022-a662-4c58-8865-a1fb904d2cde", extraQuery:"&user_email=test@getsilt.com&meta={\"monster\":\"hydra\"}")
-        
+        let vc = SiltWebviewController(companyAppId:"2022a022-a662-4c58-8865-a1fb904d2cde", extraQuery:"&user_email=test@getsilt.com")
+        // let vc = SiltWebviewController(companyAppId:"2022a022-a662-4c58-8865-a1fb904d2cde", path: "biocheck", extraQuery:"&temp_token=ab7f9678-671b-4640-a540-cd1fadc90b15")
         // Subscribe to the notification that will be triggered when a user finishes Silt's verification flow,
         // that will run "onFinishedSiltVerification" function
         NotificationCenter.default.addObserver(self, selector: #selector(onFinishedSiltVerification(_:)), name: .didFinishedSiltVerification, object: nil)
@@ -57,8 +57,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
         //view.window!.layer.add(getTransition(subtype: .fromRight), forKey: kCATransition)
         
         // set the Presentation style of the webview
-        //vc.modalPresentationStyle = .overFullScreen //or .overFullScreen for transparency
-        
+        vc.modalPresentationStyle = .overFullScreen //or .overFullScreen for transparency
         self.present(vc, animated: true, completion: nil)
         // You can also set default animation
         //self.present(vc, animated: true, completion: nil)

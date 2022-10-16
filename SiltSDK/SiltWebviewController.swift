@@ -35,8 +35,8 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
     var outTransition: CATransitionSubtype?
     public var siltWebview: WKWebView!
     
-    public init (companyAppId: String!, extraQuery: String = "", outTransition: CATransitionSubtype? = nil) {
-        siltSignupURL = "https://signup.getsilt.com/?company_app_id=" + companyAppId + extraQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+    public init (companyAppId: String!, path: String = "", extraQuery: String = "", outTransition: CATransitionSubtype? = nil) {
+        siltSignupURL = "https://signup.getsilt.com/" + path + "?company_app_id=" + companyAppId + extraQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         self.outTransition = outTransition
         super.init(nibName: nil, bundle: nil)
     }
@@ -70,6 +70,7 @@ public class SiltWebviewController: UIViewController, WKUIDelegate {
     }
     
     public override func loadView() {
+        
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.allowsInlineMediaPlayback = true
         siltWebview = WKWebView(frame: .zero, configuration: webConfiguration)
